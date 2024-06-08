@@ -32,16 +32,22 @@ body {
 .bottombar {
    display: flex;
    justify-content: center;
-   gap: 40px;
+   gap: 70px;
 }
 
 .container {
-   width: 600px;
+   width: 500px;
    height: 500px;
+   padding: 10px;
    border: 1px solid black;
    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);;
    border-radius: 10px;
-   background-color: rgb(196, 195, 195);
+   background-color: white;
+   display: flex;
+   justify-content: center;
+   align-content: center;
+   flex-wrap: wrap;
+   align-items: center;
 }
 
 .controls {
@@ -100,22 +106,27 @@ button.black {
 
 button.red:hover {
    background-color: rgb(225, 4, 4);
+   transition: 500ms;
 }
 
 button.green:hover {
    background-color: rgb(4, 232, 4);
+   transition: 500ms;
 }
 
 button.blue:hover {
    background-color: rgb(6, 6, 237);
+   transition: 500ms;
 }
 
 button.yellow:hover {
    background-color: rgb(247, 247, 5);
+   transition: 500ms;
 }
 
 button.black:hover {
    background-color: rgb(9, 0, 0);
+   transition: 500ms;
 }
 
 .eraser_reset {
@@ -138,4 +149,10 @@ button.black:hover {
 
 .eraser_reset button:hover {
    background-color: rgb(176, 5, 176);
+   transition: 500ms;
+}
+
+.eraser_reset button:active {
+   background-color: rgb(225, 170, 225);
+   transition: 500ms;
 }
