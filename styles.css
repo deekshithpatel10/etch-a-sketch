@@ -1,0 +1,18 @@
+* {
+   padding: 0px;
+   margin: 0px;
+}
+
+body {
+   background-color: rgb(182, 227, 217);
+}
+
+.board {
+   margin: 10px auto 5px;
+   border: 1px solid black;
+   border-radius: 20px;
+   width: 1000px;
+   height: 600px;
+   background-color: rgb(127, 172, 220);
+   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
