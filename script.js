@@ -2,7 +2,11 @@ const container = document.querySelector(".container");
 const colorButtons = document.querySelectorAll(".color-choice button");
 const eraser = document.querySelector(".eraser");
 const reset = document.querySelector(".reset");
+const blackButton = document.querySelector(".black");
+const slider = document.querySelector(".slider input");
 
+//initally, black color is chosen
+blackButton.style.border = "2px solid white";
 let penColor = "black";
 
 
@@ -31,34 +35,47 @@ eraser.addEventListener('click', () => {
 
 });
 
-const numberOfCells = 50;
+let numberOfCells = slider.value;
+let cells;
+addGrid( numberOfCells );
+
+function addGrid( numberOfCells ) {
+   for (let index = 0; index < (numberOfCells * numberOfCells); index++) {
+      const div = document.createElement("div");
+
+      let widthOfCell = 500 / numberOfCells;
+
+      div.style.boxSizing = "border-box"
+      div.style.border = "0.1px solid lightgray";
+      div.style.width = widthOfCell + "px";
+      div.style.height = widthOfCell + "px";
+
+      container.appendChild(div);
+   }
+};
 
 
-for (let index = 0; index < (numberOfCells * numberOfCells); index++) {
-   const div = document.createElement("div");
 
-   let widthOfCell = 500 / numberOfCells;
+slider.addEventListener('input', () => {
+   container.replaceChildren();
+   addGrid( slider.value );
+   cells = container.childNodes;
 
-   div.style.boxSizing = "border-box"
-   div.style.border = "0.1px solid lightgray";
-   div.style.width = widthOfCell + "px";
-   div.style.height = widthOfCell + "px";
-
-   container.appendChild(div);
-}
-
-const cells = container.childNodes;
-
-cells.forEach((cell) => {
-   cell.addEventListener('mouseenter', (event) => {
-      if(event.buttons === 1) cell.style.backgroundColor = penColor;
+   cells.forEach((cell) => {
+      cell.addEventListener('mouseenter', (event) => {
+         if(event.buttons === 1) cell.style.backgroundColor = penColor;
+      });
    });
+   
+   reset.addEventListener("click", () => {
+      cells.forEach((cell) => {
+         cell.style.backgroundColor = "white";
+      })
+   })
 });
 
-reset.addEventListener("click", () => {
-   cells.forEach((cell) => {
-      cell.style.backgroundColor = "white";
-   })
-})
+
+
+
 
 
